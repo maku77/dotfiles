@@ -1,0 +1,2 @@
+source <sfile>:p:h/gvimrc_base.vim
+source <sfile>:p:h/gvimrc_color.vim
