@@ -1,0 +1,33 @@
+#!/bin/bash
+#
+# Move files to trash directory with a datetime prefix.
+#
+# Usage:
+#   $ trash <file>...
+#
+# Example:
+#   $ trash main.cpp
+#   $ trash one.txt two.txt three.txt
+#   $ trash *.java
+#
+# Author:
+#   Masatoshi Ohta [2011-06-07]
+#
+trashbox=~/.trashbox
+
+if [ ! -d $trashbox ]
+then
+  echo "Create $trashbox"
+  mkdir $trashbox
+fi
+
+for f in $@
+do
+  if [ -f $f ]; then
+    to=$trashbox/`date +%Y%m%d%H%M%S`-`basename $f`
+    echo "Move '$f' to '$to'"
+    mv $f $to
+  else
+    echo "'$f' does not exist."
+  fi
+done
