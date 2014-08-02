@@ -1,0 +1,33 @@
+#!/bin/sh
+
+#---------------------------------------------------------
+# Download script for Perforce.
+# [2009-06-11] Masatoshi Ohta
+#
+# This script is for downloading files
+# from a perforce server to a local directory,
+# remaining the depot tree structure.
+#
+# Usage example:
+#   my-p4-download //depot/aaa/bbb/...#1
+#
+# In the above case, the directory "depot/aaa/bbb"
+# will be automatically created in the current directory.
+#---------------------------------------------------------
+oldifs=$IFS
+IFS='
+'
+
+echo 'Downloading the following files...'
+
+for i in `p4 files $@`
+do
+    p4path=`echo $i | sed 's/\(.\+#[0-9]\+\).\+/\1/'`
+    p4path_without_rev=`echo $i | cut -d '#' -f1`
+    localpath=`echo $p4path_without_rev | sed 's://::'`
+    echo $p4path
+    p4 print -o $localpath -q $p4path
+done
+
+IFS=$oldif
+
