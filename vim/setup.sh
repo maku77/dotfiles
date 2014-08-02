@@ -2,20 +2,26 @@
 script_dir=$(cd $(dirname $0); pwd)
 
 # Create ~/.vimrc
-echo -n "Overwrite $HOME/.vimrc? (y/n [n]): "
-read line
-if [ "$line" == 'y' ]; then
-    rm $HOME/.vimrc
-    echo "source $script_dir/vimrc" > $HOME/.vimrc
+if [ -f $HOME/.vimrc ]; then
+    echo -n "Overwrite $HOME/.vimrc? (y/n [n]): "
+    read line
+    if [ "$line" != 'y' ]; then
+        exit
+    fi
 fi
+rm -f $HOME/.vimrc
+echo "source $script_dir/vimrc" > $HOME/.vimrc
 
 # Create ~/.gvimrc
-echo -n "Overwrite $HOME/.gvimrc? (y/n [n]): "
-read line
-if [ "$line" == 'y' ]; then
-    rm $HOME/.gvimrc
-    echo "source $script_dir/gvimrc" > $HOME/.gvimrc
+if [ -f $HOME/.gvimrc ]; then
+    echo -n "Overwrite $HOME/.gvimrc? (y/n [n]): "
+    read line
+    if [ "$line" != 'y' ]; then
+        exit
+    fi
 fi
+rm -f $HOME/.gvimrc
+echo "source $script_dir/gvimrc" > $HOME/.gvimrc
 
 # Create a backup directory.
 mkdir -p $HOME/temp/vim_backup
