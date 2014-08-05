@@ -59,5 +59,10 @@ MinGw/msys などをインストールしてある環境で、環境変数 SHELL
 [140805 21:23:12] > /usr/bin/bash: git: command not found
 ```
 
-一時的に環境変数 SHELL をクリアして vim を起動するか、%HOME%\\.bashrc などで git コマンドへのパスを通すことで BundleInstall できるようになります。
+git にパスが通っていたとしても、おかしなエラーが出ることがあります。
+このようなときは、下記のように一時的に環境変数 SHELL をクリアして vim を起動して BundleInstall するとうまくいきます。
 
+```doc
+C:\> set SHELL=
+C:\> gvim
+```
