@@ -101,22 +101,20 @@ vnoremap < <gv
 " Stay visual mode after formatting code [2013-05-27]
 vnoremap = =gv
 
-" Go to next tab
+" Change the tab
 " Some terminal cannot handle Ctrl+Tab.. [2009-06-12]
 map <C-Tab> :tabnext<CR>
 map <C-l> :tabnext<CR>
 map <C-k> :tabnext<CR>
-imap <C-Tab> <ESC>:tabnext<CR>
-imap <C-l> <ESC>:tabnext<CR>
-imap <C-k> <ESC>:tabnext<CR>
-
-" Go to previous tab
 map <C-S-Tab> :tabprevious<CR>
 map <C-j> :tabprevious<CR>
 map <C-h> :tabprevious<CR>
-imap <C-S-Tab> <ESC>:tabprevious<CR>
-imap <C-j> <ESC>:tabprevious<CR>
-imap <C-h> <ESC>:tabprevious<CR>
+"imap <C-Tab> <ESC>:tabnext<CR>
+"imap <C-l> <ESC>:tabnext<CR>
+"imap <C-k> <ESC>:tabnext<CR>
+"imap <C-S-Tab> <ESC>:tabprevious<CR>
+"imap <C-j> <ESC>:tabprevious<CR>
+"imap <C-h> <ESC>:tabprevious<CR>
 
 "--------------
 " Status line
