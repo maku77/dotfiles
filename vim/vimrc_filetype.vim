@@ -7,7 +7,7 @@ autocmd FileType c,cpp,java setl expandtab tabstop=4 shiftwidth=4 softtabstop=4 
 
 " JavaScript
 autocmd FileType javascript setl autoindent
-autocmd FileType javascript setl expandtab tabstop=4 shiftwidth=4 softtabstop=4 shiftround
+autocmd FileType javascript setl expandtab tabstop=2 shiftwidth=2 softtabstop=2 shiftround
 
 " Ruby [2010-05-07]
 autocmd FileType ruby setl smartindent
