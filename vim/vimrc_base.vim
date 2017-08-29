@@ -55,11 +55,11 @@ set clipboard+=unnamed  "Use the clipboard register '*' for all yank.
 "--------------------------------
 " Backup/Swap/Undo file settings
 "--------------------------------
-set backup     "Backup [ON]
-set swapfile   "Swap   [ON]
-set noundofile "Undo   [OFF]
+set backup
 set backupdir=~/temp/vim_backup
+set swapfile
 set directory=~/temp/vim_backup
+set noundofile
 set undodir=~/temp/vim_backup
 
 "----------------------
