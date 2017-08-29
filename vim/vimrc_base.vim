@@ -52,12 +52,15 @@ set hlsearch  "When there is a previous search pattern, highlight all its matche
 set incsearch  "Inclemental search On
 set clipboard+=unnamed  "Use the clipboard register '*' for all yank.
 
-"---------------------
-" Backup/Swap [2010-08-29]
-"---------------------
-set backup  "Backup ON
-set backupdir=~/temp/vim_backup,D:/x/home/temp/vim_backup
-set directory=~/temp/vim_backup,D:/x/home/temp/vim_backup
+"--------------------------------
+" Backup/Swap/Undo file settings
+"--------------------------------
+set backup     "Backup [ON]
+set swapfile   "Swap   [ON]
+set noundofile "Undo   [OFF]
+set backupdir=~/temp/vim_backup
+set directory=~/temp/vim_backup
+set undodir=~/temp/vim_backup
 
 "----------------------
 " Encoding, EOL format
