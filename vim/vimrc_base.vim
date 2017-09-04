@@ -8,9 +8,6 @@ nmap <F1> :tabnew $MYVIMRC<CR>
 imap <silent> <F2> <C-R>=strftime("%Y-%m-%d")<CR>
 nmap <silent> <F2> <ESC>i<C-R>=strftime("%Y-%m-%d")<CR><CR><ESC>
 
-" Do myself as Vim script [2014-01-27] OK
-nmap <silent> <F5> :source %<CR>
-
 "---------------------------------------------
 " 開いたファイルのあるディレクトリをカレントディレクトリに [2013-06-16] OK
 "---------------------------------------------
