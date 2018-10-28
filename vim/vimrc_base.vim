@@ -1,12 +1,29 @@
 "--------------------------------------------
-" Maku macros
+" Useful key mappings (macros)
 "--------------------------------------------
-" Open ~/.vimrc [2014-01-27] OK
+
+" Open ~/.vimrc
 nmap <F1> :tabnew $MYVIMRC<CR>
 
-" Insert a date [2014-01-27] OK
-imap <silent> <F2> <C-R>=strftime("%Y-%m-%d")<CR>
-nmap <silent> <F2> <ESC>i<C-R>=strftime("%Y-%m-%d")<CR><CR><ESC>
+" Insert a date like '2018-10-28'
+imap <silent> <F1> <C-R>=strftime("%Y-%m-%d")<CR>
+imap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
+
+" Reselect visual block after indent/outdent
+vnoremap > >gv
+vnoremap < <gv
+
+" Stay visual mode after formatting code
+vnoremap = =gv
+
+" Change the tab (some terminal cannot handle C-Tab)
+nmap <C-Tab> :tabnext<CR>
+nmap <C-l> :tabnext<CR>
+nmap <C-k> :tabnext<CR>
+nmap <C-S-Tab> :tabprevious<CR>
+nmap <C-j> :tabprevious<CR>
+nmap <C-h> :tabprevious<CR>
+
 
 "---------------------------------------------
 " 開いたファイルのあるディレクトリをカレントディレクトリに [2013-06-16] OK
@@ -90,31 +107,6 @@ set scrolloff=5
 " [2010-01-05]
 "-----------------
 set formatoptions=tcqro
-
-""""""""""""""""""""
-""" Key mapping
-""""""""""""""""""""
-" Reselect visual block after indent/outdent [2013-05-27]
-vnoremap > >gv
-vnoremap < <gv
-
-" Stay visual mode after formatting code [2013-05-27]
-vnoremap = =gv
-
-" Change the tab
-" Some terminal cannot handle Ctrl+Tab.. [2009-06-12]
-map <C-Tab> :tabnext<CR>
-map <C-l> :tabnext<CR>
-map <C-k> :tabnext<CR>
-map <C-S-Tab> :tabprevious<CR>
-map <C-j> :tabprevious<CR>
-map <C-h> :tabprevious<CR>
-"imap <C-Tab> <ESC>:tabnext<CR>
-"imap <C-l> <ESC>:tabnext<CR>
-"imap <C-k> <ESC>:tabnext<CR>
-"imap <C-S-Tab> <ESC>:tabprevious<CR>
-"imap <C-j> <ESC>:tabprevious<CR>
-"imap <C-h> <ESC>:tabprevious<CR>
 
 "--------------
 " Status line
