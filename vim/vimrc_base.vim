@@ -5,9 +5,13 @@
 " Open ~/.vimrc
 nmap <F1> :tabnew $MYVIMRC<CR>
 
+" ファイルのディレクトリを Windows のエクスプローラーで開く
+nmap <F12> :silent ! start %:h<CR>
+
 " Insert a date like '2018-10-28'
 imap <silent> <F1> <C-R>=strftime("%Y-%m-%d")<CR>
 imap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
+
 
 " Reselect visual block after indent/outdent
 vnoremap > >gv
@@ -128,8 +132,8 @@ autocmd InsertLeave * set iminsert=0
 "-----------------------
 au QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
-"----------------
-" ctags settings
-" [2010-10-13]
-"----------------
-set tags=./tags,./TAGS,tags,TAGS,~/tags
+"-----------------------
+" ctags search settings
+"-----------------------
+set tags=./tags;,tags;
+
