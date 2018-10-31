@@ -31,7 +31,7 @@ augroup vimrc
     autocmd FileType go  setl noexpandtab autoindent
 
     " <F5> key execution
-    autocmd FileType java        nmap <buffer> <F5> :!javac %<CR>
+    autocmd FileType java        nmap <buffer> <F5> :!javac -encoding UTF-8 % && java %<<CR>
     autocmd FileType javascript  nmap <buffer> <F5> :!node %<CR>
     autocmd FileType php         nmap <buffer> <F5> :!php %<CR>
     autocmd FileType python      nmap <buffer> <F5> :!python %<CR>
@@ -39,5 +39,16 @@ augroup vimrc
     autocmd FileType go          nmap <buffer> <F5> :!go run %<CR>
     autocmd FileType groovy      nmap <buffer> <F5> :!groovy %<CR>
     autocmd FileType vim         nmap <buffer> <F5> :source %<CR>
+    autocmd FileType c,cpp       nmap <buffer> <F5> :DoClang<CR>
 augroup END
+
+" C/C++ コードをコンパイル＆実行する関数
+command! DoClang call s:DoClang()
+function! s:DoClang()
+    if has("win32") || has("win64") || has("win32unix")
+        :!clang++ % -o %<.exe && %<.exe
+    else
+        :!clang++ % -o %<.out && ./%<.out
+    endif
+endfunction
 
