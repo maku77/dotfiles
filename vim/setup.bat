@@ -9,4 +9,4 @@ set MY_DIR=%~dp0
 @echo on
 echo source %MY_DIR%vimrc >> %HOME%\_vimrc
 echo source %MY_DIR%gvimrc >> %HOME%\_gvimrc
-
+mkdir %HOME%\temp\vim_backup
