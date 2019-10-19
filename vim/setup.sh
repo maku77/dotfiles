@@ -11,6 +11,7 @@ if [ -f $HOME/.vimrc ]; then
 fi
 rm -f $HOME/.vimrc
 echo "source $script_dir/vimrc" > $HOME/.vimrc
+echo "\"source $script_dir/vimrc_hugo.vim" >> $HOME/.vimrc
 
 # Create ~/.gvimrc
 if [ -f $HOME/.gvimrc ]; then
