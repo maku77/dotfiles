@@ -16,12 +16,10 @@ augroup vimrc
     " Python
     autocmd FileType python  setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
     autocmd FileType python  setl expandtab tabstop=4 shiftwidth=4 softtabstop=4 shiftround
-    autocmd FileType python  inoremap # X# 
 
     " Ruby, eruby (ERB)
     autocmd FileType ruby,eruby  setl smartindent
     autocmd FileType ruby,eruby  setl expandtab tabstop=2 shiftwidth=2 softtabstop=2 shiftround
-    autocmd FileType ruby,eruby  inoremap # X# 
 
     " HTML, CSS, SCSS
     autocmd FileType html,css,scss  setl autoindent
