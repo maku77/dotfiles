@@ -5,8 +5,12 @@
 " Open ~/.vimrc
 nmap <F1> :tabnew $MYVIMRC<CR>
 
-" ファイルのディレクトリを Windows のエクスプローラーで開く
-nmap <F12> :silent ! start %:h<CR>
+" 編集中ファイルのディレクトリを Explorer や Finder で開く
+if has("win32") || has("win64") || has("win32unix")
+    nmap <F12> :silent ! start %:h<CR>
+elseif has("macunix")
+    nmap <F12> :silent ! open %:h<CR>
+endif
 
 " Insert a date like '2018-10-28'
 imap <silent> <F1> <C-R>=strftime("%Y-%m-%d")<CR>
