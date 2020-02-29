@@ -1,6 +1,7 @@
 source <sfile>:p:h/vimrc_vundle.vim
 source <sfile>:p:h/vimrc_base.vim
 source <sfile>:p:h/vimrc_filetype.vim
+source <sfile>:p:h/vimrc_hugo.vim
 
 " vundle を base の後ろで読み込んでしまうと、
 " fileformats の設定が上書きされてしまうっぽいので、
