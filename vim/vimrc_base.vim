@@ -1,20 +1,40 @@
 "--------------------------------------------
 " Useful key mappings (macros)
 "--------------------------------------------
+let mapleader = "\<SPACE>"
 
 " Open ~/.vimrc
 nmap <F1> :tabnew $MYVIMRC<CR>
 
 " 編集中ファイルのディレクトリを Explorer や Finder で開く
 if has("win32") || has("win64") || has("win32unix")
-    nmap <F12> :silent ! start %:h<CR>
+    nnoremap <F12> :silent ! start %:h<CR>
 elseif has("macunix")
-    nmap <F12> :silent ! open %:h<CR>
+    nnoremap <F12> :silent ! open %:h<CR>
 endif
 
 " Insert a date like '2018-10-28'
-imap <silent> <F1> <C-R>=strftime("%Y-%m-%d")<CR>
-imap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
+inoremap <silent> <F1> <C-R>=strftime("%Y-%m-%d")<CR>
+inoremap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
+
+" NERDTree 用のキーマップ
+nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
+nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
+
+" Change the tab (some terminal cannot handle C-Tab)
+nnoremap <C-Tab> :<C-u>tabnext<CR>
+nnoremap <C-l> :<C-u>tabnext<CR>
+nnoremap <C-k> :<C-u>tabnext<CR>
+nnoremap <C-S-Tab> :<C-u>tabprevious<CR>
+nnoremap <C-j> :<C-u>tabprevious<CR>
+nnoremap <C-h> :<C-u>tabprevious<CR>
+
+" Stay visual mode after formatting code
+vnoremap = =gv
+
+" Reselect visual block after indent/outdent
+vnoremap > >gv
+vnoremap < <gv
 
 
 "--------------------------------------------
@@ -23,13 +43,6 @@ imap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
 
 " インサートモード中の BS、CTRL-W、CTRL-U による文字削除を柔軟にする
 set backspace=indent,eol,start
-
-" Reselect visual block after indent/outdent
-vnoremap > >gv
-vnoremap < <gv
-
-" Stay visual mode after formatting code
-vnoremap = =gv
 
 " Desired linebreak position
 "set textwidth=79
@@ -44,17 +57,6 @@ set shiftround  "Round indent to multiple of 'shiftwidth'
 
 " Auto formatting
 set formatoptions=tcqro
-
-
-"--------------------------------------------
-" Change the tab (some terminal cannot handle C-Tab)
-"--------------------------------------------
-nmap <C-Tab> :tabnext<CR>
-nmap <C-l> :tabnext<CR>
-nmap <C-k> :tabnext<CR>
-nmap <C-S-Tab> :tabprevious<CR>
-nmap <C-j> :tabprevious<CR>
-nmap <C-h> :tabprevious<CR>
 
 
 "---------------------------------------------
