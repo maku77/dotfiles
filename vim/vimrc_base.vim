@@ -58,12 +58,8 @@ set shiftround  "Round indent to multiple of 'shiftwidth'
 " Auto formatting
 set formatoptions=tcqro
 
-
-"---------------------------------------------
-" 開いたファイルのあるディレクトリをカレントディレクトリに [2013-06-16] OK
-"---------------------------------------------
-
-"au BufEnter * execute ":lcd " . expand("%:p:h")
+" Change the current working directory automatically
+set autochdir
 
 " Last update: 2009-01-26
 set number  "Print the line number in front of each line.
