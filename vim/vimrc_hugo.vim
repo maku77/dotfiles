@@ -22,6 +22,51 @@ function! s:InsertHugoFrontMatter()
   execute ":normal gg"
 endfunction
 
+" gamedb.org 用の JSON テンプレートを挿入する
+function! s:InsertGameJson()
+  execute ":normal o"
+  execute ":normal I" . "    {"
+  execute ":normal o"
+  execute ":normal I" . "      \"id\": \"" . s:RandStr(7) . "\","
+  execute ":normal o"
+  execute ":normal I" . "      \"gid\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"title\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"title_en\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"retro\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"rom\": false,"
+  execute ":normal o"
+  execute ":normal I" . "      \"amazon\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"wikipedia\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"date\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"canonical_genre\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"genre\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"maker\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"players\": null,"
+  execute ":normal o"
+  execute ":normal I" . "      \"simultaneous\": null,"
+  execute ":normal o"
+  execute ":normal I" . "      \"serial\": \"\","
+  execute ":normal o"
+  execute ":normal I" . "      \"price\": null"
+  execute ":normal o"
+  execute ":normal I" . "    },"
+  execute ":normal 14k"
+  execute ":normal 11l"
+endfunction
+
 " Hugo コマンドを定義する
 command! Hugo call s:InsertHugoFrontMatter()
+
+" Game コマンドを定義する
+command! Game call s:InsertGameJson()
 
