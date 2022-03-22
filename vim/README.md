@@ -15,7 +15,7 @@ $ ./setup.sh
 
 ```bash
 $ mkdir ~/.vim
-$ git clone git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+$ git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 ```
 
 Vim を起動したら、下記のようにプラグインをインストールして完了です。
