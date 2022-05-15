@@ -17,8 +17,8 @@ function! s:InsertHugoFrontMatter()
 
   let title = "title: \"\"\n"
   let linkTitle = "linkTitle: \"\"\n"
-  let url = "url: \"p/" . randomId . "\"\n"
-  let permalink = "permalink: \"p/" . randomId . "\"\n"
+  let url = "url: \"p/" . randomId . "/\"\n"
+  let permalink = "permalink: \"p/" . randomId . "/\"\n"
   let date = "date: \"" . strftime("%Y-%m-%d") . "\"\n"
   let tags = "tags: [\"\"]\n"
   let draft = "draft: true\n"
