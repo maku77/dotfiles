@@ -25,6 +25,15 @@ function! s:InsertHugoFrontMatter()
   execute ":normal gg"
 endfunction
 
+" code ショートコードを挿入する
+function! s:InsertCodeShortcode()
+  execute ":normal o"
+  execute ":normal I" . "{{< code lang=\"\" title=\"\" >}}\n\n{{< /code >}}"
+  execute ":normal 2k"
+  execute ":normal /\""
+  execute ":normal 3l"
+endfunction
+
 " gamedb.org 用の JSON テンプレートを挿入する
 function! s:InsertGameJson()
   execute ":normal o"
@@ -69,6 +78,9 @@ endfunction
 
 " Hugo コマンドを定義する
 command! Hugo call s:InsertHugoFrontMatter()
+
+" Code コマンドを定義する
+command! Code call s:InsertCodeShortcode()
 
 " Game コマンドを定義する
 command! Game call s:InsertGameJson()
