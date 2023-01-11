@@ -11,19 +11,17 @@ function! s:RandStr(length)
 endfunction
 
 " 先頭行に Hugo 用のフロントマターを挿入する
-" （url は Hugo 用で、permalink は Jekyll 用）
 function! s:InsertHugoFrontMatter()
   let randomId = s:RandStr(7)
 
   let title = "title: \"\"\n"
   let linkTitle = "linkTitle: \"\"\n"
   let url = "url: \"p/" . randomId . "/\"\n"
-  let permalink = "permalink: \"p/" . randomId . "/\"\n"
   let date = "date: \"" . strftime("%Y-%m-%d") . "\"\n"
   let tags = "tags: [\"\"]\n"
   let draft = "draft: true\n"
   execute ":normal gg"
-  execute ":normal I" . "---\n" . title . linkTitle . url . permalink . date . tags . draft . "---\n\n"
+  execute ":normal I" . "---\n" . title . linkTitle . url . date . tags . draft . "---\n\n"
   execute ":normal gg"
 endfunction
 
