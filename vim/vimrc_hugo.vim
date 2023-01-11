@@ -4,8 +4,9 @@ function! s:RandStr(length)
   let n = len(chars)
   let result = ''
   for i in range(a:length)
-    let rand = reltime()[1]
-    let result .= chars[rand % n]
+    " let rnd = reltime()[1]
+    let rnd = rand()
+    let result .= chars[rnd % n]
   endfor
   return result
 endfunction
