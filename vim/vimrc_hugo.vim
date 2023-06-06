@@ -11,6 +11,11 @@ function! s:RandStr(length)
   return result
 endfunction
 
+" 7 桁のランダム ID を挿入する
+function! s:InsertId()
+  execute ":normal i" . s:RandStr(7)
+endfunction
+
 " 先頭行に Hugo 用のフロントマターを挿入する
 function! s:InsertHugoFrontMatter()
   let randomId = s:RandStr(7)
@@ -86,3 +91,5 @@ command! Code call s:InsertCodeShortcode()
 " Game コマンドを定義する
 command! Game call s:InsertGameJson()
 
+" Id コマンドを定義する
+command! Id call s:InsertId()

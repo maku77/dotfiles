@@ -5,6 +5,9 @@ augroup vimrc
     " Remove all autocommands in this group
     autocmd!
 
+    " Markdown
+    autocmd FileType markdown  setl expandtab tabstop=2 shiftwidth=2 softtabstop=2 shiftround
+
     " C/C++, Java
     autocmd FileType c,cpp,java  setl cindent
     autocmd FileType c,cpp,java  setl expandtab tabstop=4 shiftwidth=4 softtabstop=4 shiftround
