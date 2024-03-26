@@ -1,0 +1,39 @@
+# 設定ファイル保存時にオートリロード
+live_config_reload = true
+
+[window]
+# 画面端のパディング
+padding = { x = 4, y = 2 }
+# 背景を透過させる
+opacity = 0.9
+
+# 背景色
+[colors.primary]
+background = "#000055"
+
+[colors]
+# カーソル色
+cursor = { text = "CellBackground", cursor = "#00ff00" }
+# VI モードのカーソル色
+vi_mode_cursor = { text = "CellBackground", cursor = "#ff0000" }
+# 選択範囲の色
+selection = { text = "CellBackground", background = "#ffaaaa" }
+
+[cursor]
+# カーソルを点滅させる
+style = { blinking = "On" }
+# 点滅のインターバル
+blink_interval = 500
+# 点滅を停止するまでの秒数（0: 停止しない）
+blink_timeout = 0
+
+[font]
+# フォントサイズ（デフォルトは 11.25）
+size = 16
+
+[keyboard]
+bindings = [
+  { key = "PageUp", action = "ScrollPageUp" },
+  { key = "PageDown", action = "ScrollPageDown" },
+]
+
