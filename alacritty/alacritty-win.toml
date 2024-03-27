@@ -1,0 +1,8 @@
+[shell]
+program = "wsl"
+args = [ "--cd", "D:/y/gitwork" ]
+
+[font]
+# フォントサイズ（デフォルトは 11.25）
+size = 14
+

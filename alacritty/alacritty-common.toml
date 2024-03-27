@@ -2,6 +2,8 @@
 live_config_reload = true
 
 [window]
+# ウィンドウサイズ
+dimensions = { columns = 100, lines = 30 }
 # 画面端のパディング
 padding = { x = 4, y = 2 }
 # 背景を透過させる
