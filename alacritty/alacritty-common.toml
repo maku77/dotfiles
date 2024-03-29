@@ -35,7 +35,10 @@ size = 16
 
 [keyboard]
 bindings = [
-  { key = "PageUp", action = "ScrollPageUp" },
-  { key = "PageDown", action = "ScrollPageDown" },
+  { key = "C",        mods = "Control", action = "Copy" },
+  { key = "V",        mods = "Control", action = "Paste" },
+  { key = "F11",      mods = "None",    action = "ToggleFullScreen" },
+  { key = "PageUp",   mods = "None",    action = "ScrollPageUp" },
+  { key = "PageDown", mods = "None",    action = "ScrollPageDown" },
 ]
 
