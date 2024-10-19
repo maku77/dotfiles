@@ -61,11 +61,20 @@ set formatoptions=tcqro
 " Change the current working directory automatically
 set autochdir
 
-" Last update: 2009-01-26
 set number  "Print the line number in front of each line.
-set hlsearch  "When there is a previous search pattern, highlight all its matches.
-set incsearch  "Inclemental search On
-set clipboard+=unnamed  "Use the clipboard register '*' for all yank.
+set clipboard=unnamed,unnamedplus  "Use the clipboard register '*' or '+' for all yank.
+
+
+"--------------------------------------------
+" Search settings [2009-01-26]
+"
+" - see: https://maku77.github.io/p/v4cuc9g/
+"--------------------------------------------
+set ignorecase  " Ignore case when searching.
+set smartcase  " ... unless an uppercase letter is used.
+set wrapscan  " Searches wrap around the end of the file.
+set hlsearch  " Highlight search results.
+set incsearch  " Enable incremental search.
 
 
 "--------------------------------
@@ -113,11 +122,12 @@ autocmd InsertEnter * set iminsert=0
 autocmd InsertLeave * set iminsert=0
 
 
-"-----------------------
-" Auto copen after grep
-" [2010-09-13]
-"-----------------------
-au QuickfixCmdPost make,grep,grepadd,vimgrep copen
+"------------------------------------------------------------------------------
+" Open the QuickFix window automatically after executing commands [2010-09-13]
+"
+" - see: https://maku77.github.io/p/c4q8amz/
+"------------------------------------------------------------------------------
+au QuickfixCmdPost grep,grepadd,vimgrep,vimgrepadd copen
 
 
 "-----------------------
