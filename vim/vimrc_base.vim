@@ -1,12 +1,17 @@
 "--------------------------------------------
 " Useful key mappings (macros)
 "--------------------------------------------
-let mapleader = "\<SPACE>"
+
+" Leader キー設定
+" - see: https://maku77.github.io/p/c9kmay4/
+let mapleader = "\<Space>"
 
 " Open ~/.vimrc
+" - see: https://maku77.github.io/p/r5fcfgk/
 nmap <F1> :tabnew $MYVIMRC<CR>
 
 " 編集中ファイルのディレクトリを Explorer や Finder で開く
+" - see: https://maku77.github.io/p/tqmr4od/
 if has("win32") || has("win64") || has("win32unix")
     nnoremap <F12> :silent ! start %:h<CR>
 elseif has("macunix")
@@ -14,6 +19,7 @@ elseif has("macunix")
 endif
 
 " Insert a date like '2018-10-28'
+" - see: https://maku77.github.io/p/8xk6jnw/
 inoremap <silent> <F1> <C-R>=strftime("%Y-%m-%d")<CR>
 inoremap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
 
@@ -22,6 +28,7 @@ nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
 
 " Change the tab (some terminal cannot handle C-Tab)
+" - see: https://maku77.github.io/p/ksmwhv8/
 nnoremap <C-Tab> :<C-u>tabnext<CR>
 nnoremap <C-l> :<C-u>tabnext<CR>
 nnoremap <C-k> :<C-u>tabnext<CR>
