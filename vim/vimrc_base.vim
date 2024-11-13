@@ -1,12 +1,17 @@
 "--------------------------------------------
 " Useful key mappings (macros)
 "--------------------------------------------
-let mapleader = "\<SPACE>"
+
+" Leader キー設定
+" - see: https://maku77.github.io/p/c9kmay4/
+let mapleader = "\<Space>"
 
 " Open ~/.vimrc
+" - see: https://maku77.github.io/p/r5fcfgk/
 nmap <F1> :tabnew $MYVIMRC<CR>
 
 " 編集中ファイルのディレクトリを Explorer や Finder で開く
+" - see: https://maku77.github.io/p/tqmr4od/
 if has("win64")
     nnoremap <F12> :silent ! start %:h<CR>
 elseif has("macunix")
@@ -14,6 +19,7 @@ elseif has("macunix")
 endif
 
 " Insert a date like '2018-10-28'
+" - see: https://maku77.github.io/p/8xk6jnw/
 inoremap <silent> <F1> <C-R>=strftime("%Y-%m-%d")<CR>
 inoremap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
 
@@ -22,6 +28,7 @@ nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
 
 " Change the tab (some terminal cannot handle C-Tab)
+" - see: https://maku77.github.io/p/ksmwhv8/
 nnoremap <C-Tab> :<C-u>tabnext<CR>
 nnoremap <C-l> :<C-u>tabnext<CR>
 nnoremap <C-k> :<C-u>tabnext<CR>
@@ -63,11 +70,20 @@ set formatoptions=tcqro
 " - see: https://maku77.github.io/p/4ekh9ba/
 set autochdir
 
-" Last update: 2009-01-26
 set number  "Print the line number in front of each line.
-set hlsearch  "When there is a previous search pattern, highlight all its matches.
-set incsearch  "Inclemental search On
-set clipboard+=unnamed  "Use the clipboard register '*' for all yank.
+set clipboard=unnamed,unnamedplus  "Use the clipboard register '*' or '+' for all yank.
+
+
+"--------------------------------------------
+" Search settings [2009-01-26]
+"
+" - see: https://maku77.github.io/p/v4cuc9g/
+"--------------------------------------------
+set ignorecase  " Ignore case when searching.
+set smartcase  " ... unless an uppercase letter is used.
+set wrapscan  " Searches wrap around the end of the file.
+set hlsearch  " Highlight search results.
+set incsearch  " Enable incremental search.
 
 
 "--------------------------------
@@ -94,7 +110,7 @@ set fileformat=unix
 "-----------------
 " Scroll settings
 "-----------------
-au BufEnter * set scroll=3  "Number of lines to scroll with CTRL-U and CTRL-D commands.
+autocmd BufEnter  *  set scroll=3  "Number of lines to scroll with CTRL-U and CTRL-D commands.
 set scrolljump=1
 set scrolloff=5
 
@@ -111,14 +127,16 @@ set statusline=%F%m%h%w\ %<[ENC=%{&fenc!=''?&fenc:&enc}]\ [FMT=%{&ff}]\ [TYPE=%Y
 " Turn IME off automatically
 " [2009-02-05]
 "----------------------------
-autocmd InsertEnter * set iminsert=0
-autocmd InsertLeave * set iminsert=0
+autocmd InsertEnter  *  set iminsert=0
+autocmd InsertLeave  *  set iminsert=0
 
-"-----------------------
-" Auto copen after grep
-" [2010-09-13]
-"-----------------------
-au QuickfixCmdPost make,grep,grepadd,vimgrep copen
+
+"------------------------------------------------------------------------------
+" Open the QuickFix window automatically after executing commands [2010-09-13]
+"
+" - see: https://maku77.github.io/p/c4q8amz/
+"------------------------------------------------------------------------------
+autocmd QuickfixCmdPost  grep,grepadd,vimgrep,vimgrepadd  copen
 
 
 "-----------------------
