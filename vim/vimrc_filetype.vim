@@ -1,7 +1,9 @@
 " File type detection is On.
 filetype on
 
-augroup vimrc
+" see: https://maku77.github.io/p/rj6oatw/
+" see: https://maku77.github.io/p/nwqjyx8/
+augroup filetype_group
     " Remove all autocommands in this group
     autocmd!
 
@@ -46,7 +48,7 @@ augroup END
 " C/C++ コードをコンパイル＆実行する関数
 command! DoClang call s:DoClang()
 function! s:DoClang()
-    if has("win32") || has("win64") || has("win32unix")
+    if has("win64")
         :!clang++ % -o %<.exe && %<.exe
     else
         :!clang++ % -o %<.out && ./%<.out

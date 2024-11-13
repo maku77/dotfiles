@@ -7,7 +7,7 @@ let mapleader = "\<SPACE>"
 nmap <F1> :tabnew $MYVIMRC<CR>
 
 " 編集中ファイルのディレクトリを Explorer や Finder で開く
-if has("win32") || has("win64") || has("win32unix")
+if has("win64")
     nnoremap <F12> :silent ! start %:h<CR>
 elseif has("macunix")
     nnoremap <F12> :silent ! open %:h<CR>
@@ -59,6 +59,8 @@ set shiftround  "Round indent to multiple of 'shiftwidth'
 set formatoptions=tcqro
 
 " Change the current working directory automatically
+" - see: https://maku77.github.io/p/dpccbv7/
+" - see: https://maku77.github.io/p/4ekh9ba/
 set autochdir
 
 " Last update: 2009-01-26
@@ -111,7 +113,6 @@ set statusline=%F%m%h%w\ %<[ENC=%{&fenc!=''?&fenc:&enc}]\ [FMT=%{&ff}]\ [TYPE=%Y
 "----------------------------
 autocmd InsertEnter * set iminsert=0
 autocmd InsertLeave * set iminsert=0
-
 
 "-----------------------
 " Auto copen after grep
