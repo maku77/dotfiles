@@ -9,13 +9,13 @@ $ ./setup.sh
 上記により、`vimrc` と `gvimrc` を読み込むための `~/.vimrc` と `~/.gvimrc` が作成されます。
 また、Vim 用のバックアップディレクトリとして、下記のディレクトリが作成されます。
 
- - `~/temp/vim_backup`
+- `~/temp/vim_backup`
 
 次に、プラグイン管理のための Vundle をインストールします。
 
 ```bash
 $ mkdir ~/.vim
-$ git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 Vim を起動したら、下記のようにプラグインをインストールして完了です。
@@ -26,25 +26,26 @@ Vim を起動したら、下記のようにプラグインをインストール�
 
 ### コラム
 
-`~/.vimrc` をシンボリックリンクとして作成する方法が紹介されていることがありますが、この方法では、`.vimrc` の中から、`source <sfile>:p:h/other.vim` というインクルードができなくなってしまいます（`<sfile>:p:h` がホームディレクトリを指してしまうしまうため）。ここでは、シンボリックリンクを使う方法は採用せず、`~/.vimrc` の中から、絶対パスで `vimrc` をインクルードするようにしています。
+`~/.vimrc` をシンボリックリンクとして作成する方法が紹介されていることがありますが、この方法では、`.vimrc` の中から、`source <sfile>:p:h/other.vim` というインクルードができなくなってしまいます（`<sfile>:p:h` がホームディレクトリを指してしまうしまうため）。
+ここでは、シンボリックリンクを使う方法は採用せず、`~/.vimrc` の中から、絶対パスで `vimrc` をインクルードするようにしています。
 
 ## Windows の場合
 
 `setup.bat` を実行すると、下記のファイルに `vimrc`、`gvimrc` を読み込む行が追加されます（あらかじめ環境変数 `HOME` を設定しておく必要があります）。
 
- * `%HOME%\_vimrc`
- * `%HOME%\_gvimrc`
+- `%HOME%\_vimrc`
+- `%HOME%\_gvimrc`
 
 また、Vim 用のバックアップディレクトリとして、下記のディレクトリが作成されます。
 
- - `%HOME%\temp\vim_backup`
+- `%HOME%\temp\vim_backup`
 
 次に、プラグイン管理のための Vundle をインストールします。
 Vundle は内部で `git` コマンドを必要とするので、`git` コマンドがインストールされていない場合はあらかじめインストールしておく必要があります。
 
 ```
 C:\> mkdir %HOME%\.vim
-C:\> git clone git://github.com/gmarik/vundle.git %HOME%\.vim\bundle\vundle
+C:\> git clone https://github.com/VundleVim/Vundle.vim.git %HOME%/.vim/bundle/Vundle.vim
 ```
 
 Vim を起動したら、下記のようにプラグインをインストールして完了です。

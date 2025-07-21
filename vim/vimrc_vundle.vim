@@ -1,19 +1,29 @@
 """ Enable vundle commands
-set nocompatible
-"filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+set nocompatible  " be iMproved, required
+filetype off      " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+call vundle#begin()
+  " let Vundle manage Vundle, required
+  Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'Lokaltog/vim-powerline'
+  " NERDTree 本体
+  Plugin 'preservim/nerdtree'
 
-" JavaScript syntax highlight
-Bundle 'JavaScript-syntax'
-" JavaScript Indent
-Bundle 'pangloss/vim-javascript'
+  " NERDTree tabs プラグイン
+  Plugin 'jistr/vim-nerdtree-tabs'
 
-""" NERDTree
-Bundle 'scrooloose/nerdtree'
-Bundle 'jistr/vim-nerdtree-tabs'
+  Plugin 'Lokaltog/vim-powerline'
+
+  " JavaScript syntax highlight
+  " Plugin 'JavaScript-syntax'
+
+  " JavaScript Indent
+  " Plugin 'pangloss/vim-javascript'
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+
+
+
