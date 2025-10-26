@@ -3,15 +3,22 @@
 "--------------------------------------------
 
 " Leader キー設定
-" - see: https://maku77.github.io/p/c9kmay4/
+" see: https://maku77.github.io/p/c9kmay4/
 let mapleader = "\<Space>"
 
-" Open ~/.vimrc
-" - see: https://maku77.github.io/p/r5fcfgk/
+" Change the tab
+" see: https://maku77.github.io/p/ksmwhv8/
+nnoremap <silent> <C-l> :tabnext<CR>
+nnoremap <silent> <C-k> :tabnext<CR>
+nnoremap <silent> <C-j> :tabprevious<CR>
+nnoremap <silent> <C-h> :tabprevious<CR>
+
+" ノーマルモード時に F1 キーで設定ファイルを開く
+" see: https://maku77.github.io/p/r5fcfgk/
 nmap <F1> :tabnew $MYVIMRC<CR>
 
 " 編集中ファイルのディレクトリを Explorer や Finder で開く
-" - see: https://maku77.github.io/p/tqmr4od/
+" see: https://maku77.github.io/p/tqmr4od/
 if has("win64")
     nnoremap <F12> :silent ! start %:h<CR>
 elseif has("macunix")
@@ -19,22 +26,13 @@ elseif has("macunix")
 endif
 
 " Insert a date like '2018-10-28'
-" - see: https://maku77.github.io/p/8xk6jnw/
+" see: https://maku77.github.io/p/8xk6jnw/
 inoremap <silent> <F1> <C-R>=strftime("%Y-%m-%d")<CR>
 inoremap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
 
 " NERDTree 用のキーマップ
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
-
-" Change the tab (some terminal cannot handle C-Tab)
-" - see: https://maku77.github.io/p/ksmwhv8/
-nnoremap <C-Tab> :<C-u>tabnext<CR>
-nnoremap <C-l> :<C-u>tabnext<CR>
-nnoremap <C-k> :<C-u>tabnext<CR>
-nnoremap <C-S-Tab> :<C-u>tabprevious<CR>
-nnoremap <C-j> :<C-u>tabprevious<CR>
-nnoremap <C-h> :<C-u>tabprevious<CR>
 
 " Stay visual mode after formatting code
 vnoremap = =gv
@@ -110,9 +108,11 @@ set fileformat=unix
 "-----------------
 " Scroll settings
 "-----------------
-autocmd BufEnter  *  set scroll=3  "Number of lines to scroll with CTRL-U and CTRL-D commands.
+" Number of lines to scroll with CTRL-U and CTRL-D commands.
+" - see: https://maku77.github.io/p/gu9om5z/
+autocmd BufEnter  *  setlocal scroll=3
 set scrolljump=1
-set scrolloff=5
+set scrolloff=10
 
 
 "--------------
