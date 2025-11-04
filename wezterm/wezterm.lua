@@ -1,35 +1,43 @@
-local wezterm = require 'wezterm'
+local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 
 -- カラースキーム設定
--- config.color_scheme = 'AdventureTime'
--- config.color_scheme = 'Batman'
--- config.color_scheme = 'Catppuccin Mocha'
-config.color_scheme = 'Dracula'
+-- config.color_scheme = "AdventureTime"
+-- config.color_scheme = "Batman"
+-- config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Dracula"
 
 -- フォント設定
 -- Download: https://github.com/yuru7/HackGen
-config.font = wezterm.font 'HackGen Console NF'
+config.font = wezterm.font "HackGen Console NF"
 
 -- 初期ウィンドウサイズ、フォントサイズ、カラースキームの設定
 config.initial_cols = 100
 config.initial_rows = 25
 config.font_size = 16
 
-config.enable_scroll_bar = true  -- スクロールバーを表示
--- config.window_decorations = "RESIZE"  -- タイトルバーを非表示
-config.use_fancy_tab_bar = false  -- 立体感のないフラットなタブバーにする
+-- config.use_fancy_tab_bar = false  -- 立体感のないフラットなタブバーにする
+-- config.hide_tab_bar_if_only_one_tab = true  -- タブが1つだけのときはタブバーを非表示
 -- config.tab_bar_at_bottom = true  -- タブをウィンドウの下部に表示
 config.show_new_tab_button_in_tab_bar = false  -- タブの追加ボタンを非表示（Cmd+Tで新しいタブを開けるので不要）
-
--- ウィンドウ装飾の設定（タブバーとボタン類を統合する）
-config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
-config.integrated_title_button_style = "Windows"
+-- config.show_close_tab_button_in_tabs = false -- タブを閉じるボタンを非表示（Cmd+Wでタブを閉じるので不要）
+-- config.window_decorations = "RESIZE"  -- タイトルバーを非表示
+-- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE" -- タブバーとボタン類を統合する
+-- config.integrated_title_button_style = "Windows"
 
 config.default_cursor_style = "BlinkingBlock"  -- カーソルを点滅するブロックに設定
+config.enable_scroll_bar = true  -- スクロールバーを表示
 
 config.window_frame = {
   font_size = 14.0,  -- タブバーの文字サイズ
+
+  -- The overall background color of the tab bar when the window is focused
+  -- （use_fancy_tab_bar = true [default] のときこの色が使われる）
+  active_titlebar_bg = "#111",
+
+  -- The overall background color of the tab bar when the window is not focused
+  -- これは効かない？
+  inactive_titlebar_bg = "#ccc",
 }
 
 config.window_background_opacity = 0.8  -- ウィンドウを透過させる
@@ -44,20 +52,26 @@ config.window_padding = {
 }
 
 config.colors = {
-  scrollbar_thumb = '#66dd99',  -- スクロールバーのつまみの色
+  cursor_bg = "#f39",
+  cursor_fg = "white",
+  selection_bg = "lightblue",
+  selection_fg = "blue",
+  scrollbar_thumb = "#66dd99",  -- スクロールバーのつまみの色
   tab_bar = {
-    background = "#222",  -- タブバー全体の背景色（none:透過）
+    -- タブバー全体の背景色（none:透過）
+    -- （use_fancy_tab_bar = false のときこの色が使われる）
+    background = "#111",
+    inactive_tab_edge = "#666", -- The color of the inactive tab bar edge/divider
     -- アクティブなタブの色
     active_tab = {
-      bg_color = '#ff99aa',
-      fg_color = '#000000',
+      bg_color = "#f39",
+      fg_color = "white",
     },
     -- 非アクティブなタブの色
     inactive_tab = {
-      bg_color = '#666666',
-      fg_color = '#000000',
+      bg_color = "#eee",
+      fg_color = "#333",
     },
-    inactive_tab_edge = "none",
   },
 }
 
