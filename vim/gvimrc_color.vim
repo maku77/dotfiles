@@ -6,16 +6,19 @@ colorscheme torte  "カラースキームの設定
 syntax enable  "Syntax highlighting On
 
 " Color of line number [2013-04-07]
-"hi LineNr guifg=#ffffff guibg=#666666 ctermfg=black ctermbg=gray
-"hi CursorLineNr guifg=black guibg=#666666 ctermfg=black ctermbg=gray
+" see: https://maku77.github.io/p/t8o6tum/
 hi LineNr guifg=#cc2244 guibg=#551100 ctermfg=black ctermbg=gray
-hi CursorLineNr guifg=#ff2244 guibg=#551100 ctermfg=black ctermbg=gray
+hi CursorLineNr guifg=#dd3355 guibg=#771100 ctermfg=black ctermbg=gray
 
-" Color of cursor line/column [2009-09-09]
+" カーソル行／カーソル列を強調表示
+" see: https://maku77.github.io./p/osrx94g/
 set cursorline
-hi CursorLine guibg=#0044ee ctermbg=blue
 set cursorcolumn
-hi CursorColumn guibg=#002299 ctermbg=blue
+
+" カーソル行／カーソル列の背景色
+" see: https://maku77.github.io./p/osrx94g/
+highlight CursorLine guibg=#0044ee ctermbg=blue
+highlight CursorColumn guibg=#002299 ctermbg=blue
 
 " Color of invisible chars such as tab and trail [2011-04-24]
 exec "set listchars=tab:\uBB.,trail:_"
@@ -40,8 +43,7 @@ if has('multi_byte_ime')
   hi CursorIM guifg=NONE guibg=Red gui=NONE
 endif
 
-"--------------------------------------------
-" Desired linebreak position [2013-05-26] OK
-"--------------------------------------------
+" Desired linebreak position [2013-05-26]
+" see: https://maku77.github.io/p/ngz6n6i/
 set colorcolumn=80,100
 highlight ColorColumn guibg=#202020 ctermbg=lightgray

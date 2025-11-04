@@ -34,10 +34,9 @@ inoremap <silent> <F2> <C-R>=strftime("%Y-%m-%d (%a)")<CR>
 nnoremap <Leader>nt :<C-u>NERDTreeToggle<CR>
 nnoremap <Leader>nf :<C-u>NERDTreeFind<CR>
 
-" Stay visual mode after formatting code
+" Stay visual mode after indenting/formatting code
+" see: https://maku77.github.io/p/hoihkfy/
 vnoremap = =gv
-
-" Reselect visual block after indent/outdent
 vnoremap > >gv
 vnoremap < <gv
 
@@ -64,18 +63,21 @@ set shiftround  "Round indent to multiple of 'shiftwidth'
 set formatoptions=tcqro
 
 " Change the current working directory automatically
-" - see: https://maku77.github.io/p/dpccbv7/
-" - see: https://maku77.github.io/p/4ekh9ba/
+" see: https://maku77.github.io/p/dpccbv7/
+" see: https://maku77.github.io/p/4ekh9ba/
 set autochdir
 
-set number  "Print the line number in front of each line.
-set clipboard=unnamed,unnamedplus  "Use the clipboard register '*' or '+' for all yank.
+" Print the line number in front of each line
+set number
+
+" OS のクリップボードと連携
+" see: https://maku77.github.io/p/nnhefs3/
+set clipboard=unnamed,unnamedplus  "Use the clipboard register '*' / '+'
 
 
 "--------------------------------------------
 " Search settings [2009-01-26]
-"
-" - see: https://maku77.github.io/p/v4cuc9g/
+" see: https://maku77.github.io/p/v4cuc9g/
 "--------------------------------------------
 set ignorecase  " Ignore case when searching.
 set smartcase  " ... unless an uppercase letter is used.
@@ -109,7 +111,7 @@ set fileformat=unix
 " Scroll settings
 "-----------------
 " Number of lines to scroll with CTRL-U and CTRL-D commands.
-" - see: https://maku77.github.io/p/gu9om5z/
+" see: https://maku77.github.io/p/gu9om5z/
 autocmd BufEnter  *  setlocal scroll=3
 set scrolljump=1
 set scrolloff=10
@@ -117,7 +119,7 @@ set scrolloff=10
 
 "--------------
 " Status line
-" [2009-02-06]
+" see: https://maku77.github.io/p/oegfris/
 "--------------
 set laststatus=2  "常にステータスラインを表示
 set statusline=%F%m%h%w\ %<[ENC=%{&fenc!=''?&fenc:&enc}]\ [FMT=%{&ff}]\ [TYPE=%Y]\ %=[CODE=0x%02B]\ [POS=%l/%L(%02v)]
@@ -133,8 +135,7 @@ autocmd InsertLeave  *  set iminsert=0
 
 "------------------------------------------------------------------------------
 " Open the QuickFix window automatically after executing commands [2010-09-13]
-"
-" - see: https://maku77.github.io/p/c4q8amz/
+" see: https://maku77.github.io/p/c4q8amz/
 "------------------------------------------------------------------------------
 autocmd QuickfixCmdPost  grep,grepadd,vimgrep,vimgrepadd  copen
 
