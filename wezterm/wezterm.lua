@@ -75,4 +75,8 @@ config.colors = {
   },
 }
 
+-- Windows で cmd.exe ではなく PowerShell (pwsh) を使うための設定。
+-- macOS/Linux ではこの設定は無視されるので全環境で設定しておいてよい。
+config.default_prog = { "pwsh.exe", "-NoLogo" }
+
 return config
