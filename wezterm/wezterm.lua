@@ -1,6 +1,12 @@
 local wezterm = require "wezterm"
 local config = wezterm.config_builder()
 
+-- Windows かどうかの判断
+local is_windows = wezterm.target_triple:find("windows") ~= nil
+
+-- フォント名の定数
+local FONT_NAME = "HackGen Console NF"
+
 -- カラースキーム設定
 -- config.color_scheme = "AdventureTime"
 -- config.color_scheme = "Batman"
@@ -9,7 +15,7 @@ config.color_scheme = "Dracula"
 
 -- フォント設定
 -- Download: https://github.com/yuru7/HackGen
-config.font = wezterm.font "HackGen Console NF"
+config.font = wezterm.font(FONT_NAME)
 
 -- 初期ウィンドウサイズ、フォントサイズ、カラースキームの設定
 config.initial_cols = 100
@@ -29,7 +35,8 @@ config.default_cursor_style = "BlinkingBlock"  -- カーソルを点滅するブ
 config.enable_scroll_bar = true  -- スクロールバーを表示
 
 config.window_frame = {
-  font_size = 14.0,  -- タブバーの文字サイズ
+  font_size = is_windows and 12 or 14,  -- タブのフォントサイズ
+  font = is_windows and wezterm.font(FONT_NAME, { weight = "Regular" }) or nil,  -- Windows の場合のみ標準の太さに設定
 
   -- The overall background color of the tab bar when the window is focused
   -- （use_fancy_tab_bar = true [default] のときこの色が使われる）
@@ -64,13 +71,13 @@ config.colors = {
     inactive_tab_edge = "#666", -- The color of the inactive tab bar edge/divider
     -- アクティブなタブの色
     active_tab = {
-      bg_color = "#f39",
-      fg_color = "white",
+      bg_color = "#9ef",
+      fg_color = "#039",
     },
     -- 非アクティブなタブの色
     inactive_tab = {
-      bg_color = "#eee",
-      fg_color = "#333",
+      bg_color = "#039",
+      fg_color = "#79f",
     },
   },
 }
