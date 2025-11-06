@@ -20,7 +20,7 @@ config.font = wezterm.font(FONT_NAME)
 -- 初期ウィンドウサイズ、フォントサイズ、カラースキームの設定
 config.initial_cols = 100
 config.initial_rows = 25
-config.font_size = 16
+config.font_size = is_windows and 14 or 16
 
 -- config.use_fancy_tab_bar = false  -- 立体感のないフラットなタブバーにする
 -- config.hide_tab_bar_if_only_one_tab = true  -- タブが1つだけのときはタブバーを非表示
@@ -80,6 +80,11 @@ config.colors = {
       fg_color = "#79f",
     },
   },
+}
+
+-- Claude Code での複数行入力のため、Shift + Enter で改行シーケンスを送信
+config.keys = {
+  {key="Enter", mods="SHIFT", action=wezterm.action{SendString="\x1b\r"}},
 }
 
 -- ファイルが存在するかチェック
