@@ -5,7 +5,7 @@ function M.setup(wezterm, config)
   wezterm.on("update-status", function(window, pane)
     local cwd_uri = pane:get_current_working_dir()
     if cwd_uri then
-      window:set_right_status(cwd_uri.file_path)
+      window:set_right_status(cwd_uri.file_path .. " ")
     end
   end)
 

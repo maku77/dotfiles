@@ -34,15 +34,18 @@ function M.setup(wezterm, config)
     inactive_titlebar_bg = "#ccc",  -- Window非アクティブ時のタブバーの背景色
   }
 
-  config.window_background_opacity = 0.8  -- ウィンドウを透過させる
-  config.macos_window_background_blur = 10  -- ウィンドウの背景をぼかす（macOSのみ）
-
   -- ウィンドウ余白はカーソル矩形の単位で調整すると分かりやすい
+  -- config.window_padding = {
+  --   left = "0.5 cell",
+  --   right = "0.5 cell",
+  --   top = "0.1 cell",
+  --   bottom = "0.1 cell",
+  -- }
   config.window_padding = {
-    left = "0.5 cell",
-    right = "0.5 cell",
-    top = "0.1 cell",
-    bottom = "0.1 cell",
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
   }
 
   config.colors = {
@@ -59,6 +62,37 @@ function M.setup(wezterm, config)
       active_tab = { bg_color = "#9ef", fg_color = "#039" },
       inactive_tab = { bg_color = "#039", fg_color = "#79f" },
     },
+  }
+
+  ---- この設定は微妙（WezTerm がアクティブじゃないときも一律同じ色の枠が出る）
+  -- config.window_frame = {
+  --   border_left_width = '5px',
+  --   border_right_width = '5px',
+  --   border_bottom_height = '5px',
+  --   border_top_height = '5px',
+  --   border_left_color = 'cyan',
+  --   border_right_color = 'cyan',
+  --   border_bottom_color = 'cyan',
+  --   border_top_color = 'cyan',
+  -- }
+  --
+
+  config.cursor_blink_rate = 500  -- カーソル点滅速度（500なら1秒で1回点滅）
+
+  ---- 壁紙を設定してしまうと inactive_pane_hsb の設定が効かなくなるので使わない
+  -- config.window_background_image = 'wallpaper.jpg'
+  -- config.window_background_image_hsb = {
+  --   saturation = 1.0,
+  --   brightness = 0.05,
+  -- }
+
+  config.window_background_opacity = 0.9  -- ウィンドウを透過させる (1.0で不透過）
+  config.macos_window_background_blur = 10  -- ウィンドウの背景をぼかす（macOSのみ）
+
+  -- インアクティブなペーンの色
+  config.inactive_pane_hsb = {
+    saturation = 1.0,  -- 彩度
+    brightness = 0.4,  -- 輝度
   }
 end
 
