@@ -21,7 +21,7 @@ function M.setup(wezterm, config)
   -- config.hide_tab_bar_if_only_one_tab = true  -- タブが1つだけのときはタブバーを非表示
   -- config.tab_bar_at_bottom = true  -- タブをウィンドウの下部に表示
   -- config.window_decorations = "RESIZE"  -- タイトルバーを非表示
-  config.window_decorations = "INTEGRATED_BUTTONS|RESIZE" -- タブバーとボタン類を統合する
+  -- config.window_decorations = "INTEGRATED_BUTTONS|RESIZE" -- タブバーとボタン類を統合する
   -- config.integrated_title_button_style = "Windows"
 
   config.default_cursor_style = "BlinkingBlock"  -- カーソルを点滅するブロックに設定
