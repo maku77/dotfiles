@@ -28,3 +28,10 @@ PS> New-Item -ItemType Junction -Path $env:LOCALAPPDATA\nvim -Target $PWD
 PS> dir $env:LOCALAPPDATA | findstr nvim
 d----l        2026-09-10     20:29                nvim
 ```
+
+## （おまけ）Windows の WezTerm 上で Neovim を起動したいとき
+
+Windows で `.txt` ファイルなどをダブルクリックしたときに、WezTerm 上で Neovim を起動するようにするには下記を導入します。
+
+- https://github.com/maku77/nvim-on-wezterm
+
