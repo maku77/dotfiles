@@ -8,25 +8,23 @@
 
 Linux/macOS では `~/.config/nvim` というシンボリックリンク、Windows では `%LOCALAPPDATA%\nvim` というジャンクションをこの `nvim` ディレクトリに結び付ける形で作成すれば設定完了です。
 
-下記は、このディレクトリが `~/gitwork/dotfiles/nvim` というパスで参照できることを前提としています。
-適宜、Git クローン先のパスに置き換えてください。
-
 ### Linux/macOS の場合 ─ シンボリックリンクの作成
 
 ```
-ln -s ~/gitwork/dotfiles/nvim ~/.config/nvim
+ln -s ~/gitwork/maku77/dotfiles/nvim ~/.config/nvim
 ```
 
 ### Windows (PowerShell) の場合 ─ ジャンクションの作成
 
 ```
-New-Item -ItemType Junction -Path $env:LOCALAPPDATA\nvim -Target $env:USERPROFILE\gitwork\dotfiles\nvim
+PS> cd {このnvimディレクトリ}
+PS> New-Item -ItemType Junction -Path $env:LOCALAPPDATA\nvim -Target $PWD
 ```
 
 ジャンクションが作成されていることを `dir` コマンドで確認しておきます。
 次のように `l` というフラグの付いた `nvim` ディレクトリができていれば成功です。
 
 ```
-❯ dir $env:LOCALAPPDATA | findstr nvim
+PS> dir $env:LOCALAPPDATA | findstr nvim
 d----l        2026-09-10     20:29                nvim
 ```

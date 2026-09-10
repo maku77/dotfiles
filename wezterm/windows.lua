@@ -51,8 +51,9 @@ function M.setup(wezterm, config)
 
   config.font = wezterm.font(FONT_NAME, { weight = "Regular" }) -- Windows の場合のみ標準の太さに設定
   config.front_end = "WebGpu"  -- Windows でウィンドウ下部がチラつく場合
-  config.font_size = 14
+  config.font_size = 12 -- 基本フォントサイズ
   config.window_frame.font_size = 12  -- タブのフォントサイズ
+  config.window_background_opacity = 0.80
 
   -- Windows で cmd.exe ではなく PowerShell を使うための設定。
   -- pwsh.exe（PowerShell 7+）が利用可能ならそれを使い、なければ powershell.exe（Windows PowerShell）を使う。

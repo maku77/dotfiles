@@ -24,4 +24,3 @@ Windows 環境では、シェルプログラムとして `pwsh.exe` (PowerShell 
 ```powershell
 PS> winget install Microsoft.PowerShell
 ```
-
